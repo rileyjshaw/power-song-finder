@@ -4,38 +4,6 @@ object-assign
 @license MIT
 */
 
-/*! ./Repeatable */
-
-/*! chained-function */
-
-/*! exports provided: default */
-
-/*! no static exports found */
-
-/*! prop-types */
-
-/*! react */
-
-/*!**********************!*\
-    !*** ./src/index.js ***!
-    \**********************/
-
-/*!************************!*\
-    !*** external "react" ***!
-    \************************/
-
-/*!****************************!*\
-    !*** ./src/Repeatable.jsx ***!
-    \****************************/
-
-/*!*****************************!*\
-    !*** external "prop-types" ***!
-    \*****************************/
-
-/*!***********************************!*\
-    !*** external "chained-function" ***!
-    \***********************************/
-
 /** @license React v0.20.2
  * scheduler.production.min.js
  *

@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/power-song-finder/static/css/main.8f3f94c5.chunk.css",
-    "main.js": "/power-song-finder/static/js/main.c654eb66.chunk.js",
-    "main.js.map": "/power-song-finder/static/js/main.c654eb66.chunk.js.map",
-    "runtime-main.js": "/power-song-finder/static/js/runtime-main.caa7a5ad.js",
-    "runtime-main.js.map": "/power-song-finder/static/js/runtime-main.caa7a5ad.js.map",
-    "static/js/2.16f71637.chunk.js": "/power-song-finder/static/js/2.16f71637.chunk.js",
-    "static/js/2.16f71637.chunk.js.map": "/power-song-finder/static/js/2.16f71637.chunk.js.map",
-    "static/js/3.703f88ee.chunk.js": "/power-song-finder/static/js/3.703f88ee.chunk.js",
-    "static/js/3.703f88ee.chunk.js.map": "/power-song-finder/static/js/3.703f88ee.chunk.js.map",
+    "main.css": "/power-song-finder/static/css/main.68f77bd5.chunk.css",
+    "main.js": "/power-song-finder/static/js/main.d98ec3f6.chunk.js",
+    "main.js.map": "/power-song-finder/static/js/main.d98ec3f6.chunk.js.map",
+    "runtime-main.js": "/power-song-finder/static/js/runtime-main.46f05eff.js",
+    "runtime-main.js.map": "/power-song-finder/static/js/runtime-main.46f05eff.js.map",
+    "static/js/2.d2c8d900.chunk.js": "/power-song-finder/static/js/2.d2c8d900.chunk.js",
+    "static/js/2.d2c8d900.chunk.js.map": "/power-song-finder/static/js/2.d2c8d900.chunk.js.map",
+    "static/js/3.85cb02d9.chunk.js": "/power-song-finder/static/js/3.85cb02d9.chunk.js",
+    "static/js/3.85cb02d9.chunk.js.map": "/power-song-finder/static/js/3.85cb02d9.chunk.js.map",
     "index.html": "/power-song-finder/index.html",
-    "static/css/main.8f3f94c5.chunk.css.map": "/power-song-finder/static/css/main.8f3f94c5.chunk.css.map",
-    "static/js/2.16f71637.chunk.js.LICENSE.txt": "/power-song-finder/static/js/2.16f71637.chunk.js.LICENSE.txt"
+    "static/css/main.68f77bd5.chunk.css.map": "/power-song-finder/static/css/main.68f77bd5.chunk.css.map",
+    "static/js/2.d2c8d900.chunk.js.LICENSE.txt": "/power-song-finder/static/js/2.d2c8d900.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.caa7a5ad.js",
-    "static/js/2.16f71637.chunk.js",
-    "static/css/main.8f3f94c5.chunk.css",
-    "static/js/main.c654eb66.chunk.js"
+    "static/js/runtime-main.46f05eff.js",
+    "static/js/2.d2c8d900.chunk.js",
+    "static/css/main.68f77bd5.chunk.css",
+    "static/js/main.d98ec3f6.chunk.js"
   ]
 }
