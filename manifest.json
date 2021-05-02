@@ -1,0 +1,8 @@
+{
+  "short_name": "Power Song",
+  "name": "Power Song Finder",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000",
+  "background_color": "#74df51"
+}
