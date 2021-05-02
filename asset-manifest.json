@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/power-song-finder/static/css/main.8f3f94c5.chunk.css",
-    "main.js": "/power-song-finder/static/js/main.acb20208.chunk.js",
-    "main.js.map": "/power-song-finder/static/js/main.acb20208.chunk.js.map",
+    "main.js": "/power-song-finder/static/js/main.c654eb66.chunk.js",
+    "main.js.map": "/power-song-finder/static/js/main.c654eb66.chunk.js.map",
     "runtime-main.js": "/power-song-finder/static/js/runtime-main.caa7a5ad.js",
     "runtime-main.js.map": "/power-song-finder/static/js/runtime-main.caa7a5ad.js.map",
     "static/js/2.16f71637.chunk.js": "/power-song-finder/static/js/2.16f71637.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.caa7a5ad.js",
     "static/js/2.16f71637.chunk.js",
     "static/css/main.8f3f94c5.chunk.css",
-    "static/js/main.acb20208.chunk.js"
+    "static/js/main.c654eb66.chunk.js"
   ]
 }
