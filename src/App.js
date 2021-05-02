@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect, useMemo } from 'react';
-import Repeatable from 'react-repeatable';
+import { useKeyPresses, useRepeatable } from './hooks';
 import './App.css';
 
 const SPOTIFY_API_ROUTE = process.env.NODE_ENV === 'development' ? '' : 'https://api.spotify.com';
@@ -30,21 +30,6 @@ const PauseIcon = () => (
 		<rect x="52" y="25" width="20" height="50" />
 	</svg>
 );
-
-function RepeatableButton({ onClick, ...props }) {
-	return (
-		<Repeatable
-			tag="button"
-			type="button"
-			repeatDelay={500}
-			repeatInterval={32}
-			onHold={onClick}
-			onRelease={onClick}
-			style={{ display: 'block', fontSize: '2em' }}
-			{...props}
-		/>
-	);
-}
 
 const steps = [
 	{
@@ -123,18 +108,30 @@ function IntroDescription() {
 }
 
 function SelectTempo({ targetTempo, setTargetTempo }) {
+	const [incrementPress, incrementRelease] = useRepeatable(() => setTargetTempo(t => t + 1));
+	const [decrementPress, decrementRelease] = useRepeatable(() => setTargetTempo(t => t - 1));
+	const keyHandlers = useMemo(
+		() => ({
+			ArrowUp: { onDown: incrementPress, onUp: incrementRelease },
+			ArrowRight: { onDown: incrementPress, onUp: incrementRelease },
+			ArrowDown: { onDown: decrementPress, onUp: decrementRelease },
+			ArrowLeft: { onDown: decrementPress, onUp: decrementRelease },
+		}),
+		[decrementPress, decrementRelease, incrementPress, incrementRelease]
+	);
+	useKeyPresses(keyHandlers);
 	return (
 		<div className="Tempo-select">
-			<RepeatableButton onClick={() => setTargetTempo(t => t + 1)} className="unitalic">
+			<button onMouseDown={incrementPress} onMouseUp={incrementRelease} className="Tempo-button">
 				▲
-			</RepeatableButton>
+			</button>
 			<div className="Tempo-container">
 				<span className="Tempo-value">{targetTempo}</span>
 				<span className="Tempo-bpm">BPM</span>
 			</div>
-			<RepeatableButton onClick={() => setTargetTempo(t => t - 1)} className="unitalic">
+			<button onMouseDown={decrementPress} onMouseUp={decrementRelease} className="Tempo-button">
 				▼
-			</RepeatableButton>
+			</button>
 		</div>
 	);
 }

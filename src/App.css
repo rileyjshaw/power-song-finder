@@ -49,6 +49,13 @@ thead {
 	font-size: 3em;
 }
 
+.Tempo-button {
+	display: block;
+	font-size: 2em;
+	user-select: none;
+	font-style: normal;
+}
+
 .Button-link {
 	text-decoration: underline;
 }
