@@ -1,38 +1,63 @@
 .App {
-  text-align: center;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	padding: 0 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Header,
+main,
+thead {
+	border-bottom: 3px solid rgba(0, 0, 0, 0.9);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Header h1 {
+	font-size: 2em;
+	margin: 0.1em 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Intro {
+	margin: auto 0;
+	padding: 0.4em 0 0.8em;
+	max-width: 64ch;
+	align-self: center;
+	justify-self: center;
 }
 
-.App-link {
-  color: #61dafb;
+.Tempo-select {
+	font-size: 1.6em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-grow: 1;
+	padding-bottom: 0.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Tempo-container {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
+
+.Tempo-container::before,
+.Tempo-bpm {
+	content: '';
+	flex: 1 1 0;
+}
+
+.Tempo-value {
+	font-size: 3em;
+}
+
+.Button-link {
+	text-decoration: underline;
+}
+
+.Footer {
+	margin-top: auto;
+	text-align: right;
+}
+
+.Footer p {
+	margin: 0.5em 0;
 }
