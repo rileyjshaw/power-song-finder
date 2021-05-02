@@ -12,6 +12,14 @@ Cadence is defined in Beats Per Minute, or “BPM”. Your target BPM correspond
 
 - [Kelly McGonigal, _“The Joy of Movement”_](https://www.penguinrandomhouse.com/books/564895/the-joy-of-movement-by-kelly-mcgonigal/) – _Chapter 4: “Let Yourself Be Moved”._
 
+## Screenshots
+
+![Screen 1: Find your Power Song](screenshots/screen_1.png?raw=true "Screen 1: Find your Power Song")
+
+![Screen 2: Set your target cadence](screenshots/screen_2.png?raw=true "Screen 2: Set your target cadence")
+
+![Screen 3: Pick your Power Song](screenshots/screen_3.png?raw=true "Screen 3: Pick your Power Song")
+
 ## Usage
 
 Either use the [hosted version](https://rileyjshaw.com/power-song-finder), or follow these steps to clone your own copy:
