@@ -108,8 +108,14 @@ function IntroDescription() {
 }
 
 function SelectTempo({ targetTempo, setTargetTempo }) {
-	const [incrementPress, incrementRelease] = useRepeatable(() => setTargetTempo(t => t + 1));
-	const [decrementPress, decrementRelease] = useRepeatable(() => setTargetTempo(t => t - 1));
+	const [incrementPress, incrementRelease] = useRepeatable(e => {
+		if (e) e.preventDefault();
+		setTargetTempo(t => t + 1);
+	});
+	const [decrementPress, decrementRelease] = useRepeatable(e => {
+		if (e) e.preventDefault();
+		setTargetTempo(t => t - 1);
+	});
 	const keyHandlers = useMemo(
 		() => ({
 			ArrowUp: { onDown: incrementPress, onUp: incrementRelease },
@@ -122,14 +128,28 @@ function SelectTempo({ targetTempo, setTargetTempo }) {
 	useKeyPresses(keyHandlers);
 	return (
 		<div className="Tempo-select">
-			<button onMouseDown={incrementPress} onMouseUp={incrementRelease} className="Tempo-button">
+			<button
+				onMouseDown={incrementPress}
+				onMouseUp={incrementRelease}
+				onTouchStart={incrementPress}
+				onTouchCancel={incrementRelease}
+				onTouchEnd={incrementRelease}
+				className="Tempo-button"
+			>
 				▲
 			</button>
 			<div className="Tempo-container">
 				<span className="Tempo-value">{targetTempo}</span>
 				<span className="Tempo-bpm">BPM</span>
 			</div>
-			<button onMouseDown={decrementPress} onMouseUp={decrementRelease} className="Tempo-button">
+			<button
+				onMouseDown={decrementPress}
+				onMouseUp={decrementRelease}
+				onTouchStart={decrementPress}
+				onTouchCancel={decrementRelease}
+				onTouchEnd={decrementRelease}
+				className="Tempo-button"
+			>
 				▼
 			</button>
 		</div>

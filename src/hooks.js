@@ -42,24 +42,33 @@ export function useRepeatable(fn, { delay = 500, interval = 20, maxRepeats = 0 }
 	const timeout = useRef(null);
 	const repeatCount = useRef(0);
 
-	const loopingFn = useCallback(() => {
-		fn();
-		if (!maxRepeats || ++repeatCount.current < maxRepeats) {
-			timeout.current = setTimeout(loopingFn, interval);
-		}
-	}, [fn, interval, maxRepeats]);
+	const loopingFn = useCallback(
+		e => {
+			fn(e);
+			if (!maxRepeats || ++repeatCount.current < maxRepeats) {
+				timeout.current = setTimeout(loopingFn, interval);
+			}
+		},
+		[fn, interval, maxRepeats]
+	);
 
-	const onPress = useCallback(() => {
-		if (timeout.current) return;
-		timeout.current = setTimeout(loopingFn, delay);
-	}, [loopingFn, delay]);
+	const onPress = useCallback(
+		e => {
+			if (timeout.current) return;
+			timeout.current = setTimeout(loopingFn, delay, e);
+		},
+		[loopingFn, delay]
+	);
 
-	const onRelease = useCallback(() => {
-		clearTimeout(timeout.current);
-		timeout.current = null;
-		if (!maxRepeats || repeatCount.current < maxRepeats) fn();
-		repeatCount.current = 0;
-	}, [fn, maxRepeats]);
+	const onRelease = useCallback(
+		e => {
+			clearTimeout(timeout.current);
+			timeout.current = null;
+			if (!maxRepeats || repeatCount.current < maxRepeats) fn(e);
+			repeatCount.current = 0;
+		},
+		[fn, maxRepeats]
+	);
 
 	return [onPress, onRelease];
 }
