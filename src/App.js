@@ -175,9 +175,9 @@ function Mp3Toggle({ url }) {
 	return <button onClick={togglePlaying}>{isPlaying ? <PauseIcon /> : <PlayIcon />}</button>;
 }
 
-// Prefers a lower absolute error. In the case where absolute errors are the same,
+// Prefers a lower absolute delta. In the case where absolute deltas are the same,
 // prefers a slower tempo.
-const compareErrors = (a, b) => Math.abs(a) - Math.abs(b) || Math.sign(a) - Math.sign(b);
+const compareDeltas = (a, b) => Math.abs(a) - Math.abs(b) || Math.sign(a) - Math.sign(b);
 
 function SelectSong({ tracks, targetTempo }) {
 	return (
@@ -189,7 +189,7 @@ function SelectSong({ tracks, targetTempo }) {
 						<th scope="col">Artist</th>
 						<th scope="col">Duration</th>
 						<th scope="col">BPM</th>
-						<th scope="col">Error</th>
+						<th scope="col">Delta</th>
 						<th scope="col">Preview</th>
 					</tr>
 				</thead>
@@ -197,29 +197,29 @@ function SelectSong({ tracks, targetTempo }) {
 					{tracks
 						.map(track => {
 							let scaledBpm = track.bpm;
-							let bestError = track.bpm - targetTempo;
+							let bestDelta = track.bpm - targetTempo;
 							for (let i = 1; i <= 3; ++i) {
 								const factor = 2 ** i;
 								const doubledBpm = track.bpm * factor;
-								const doubledError = doubledBpm - targetTempo;
+								const doubledDelta = doubledBpm - targetTempo;
 								const halvedBpm = track.bpm / factor;
-								const halvedError = halvedBpm - targetTempo;
-								if (compareErrors(halvedError, bestError) < 0) {
+								const halvedDelta = halvedBpm - targetTempo;
+								if (compareDeltas(halvedDelta, bestDelta) < 0) {
 									scaledBpm = halvedBpm;
-									bestError = halvedError;
-								} else if (compareErrors(doubledError, bestError) < 0) {
+									bestDelta = halvedDelta;
+								} else if (compareDeltas(doubledDelta, bestDelta) < 0) {
 									scaledBpm = doubledBpm;
-									bestError = doubledError;
+									bestDelta = doubledDelta;
 								}
 							}
 
 							return {
 								...track,
 								bpm: scaledBpm,
-								error: bestError,
+								delta: bestDelta,
 							};
 						})
-						.sort((a, b) => compareErrors(a.error, b.error))
+						.sort((a, b) => compareDeltas(a.delta, b.delta))
 						.map(track => (
 							<tr key={`${track.title}|${track.artist}`}>
 								<td>
@@ -230,8 +230,8 @@ function SelectSong({ tracks, targetTempo }) {
 								<td>{track.artist}</td>
 								<td>{track.duration}</td>
 								<td>{Math.round(track.bpm)}</td>
-								<td>{`${['-', '', '+'][Math.sign(track.error) + 1]}${parseFloat(
-									((Math.abs(track.error) / targetTempo) * 100).toFixed(1)
+								<td>{`${['-', '', '+'][Math.sign(track.delta) + 1]}${parseFloat(
+									((Math.abs(track.delta) / targetTempo) * 100).toFixed(1)
 								)}%`}</td>
 								<td>
 									<Mp3Toggle url={track.preview} />
